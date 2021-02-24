@@ -1,7 +1,9 @@
 package ru.sbrf.ckr.sberboard.kafkapersistservice.service;
 
-import ru.sbrf.ckr.sberboard.kafkapersistservice.model.CxTxbLogStat;
+import ru.sbrf.ckr.sberboard.kafkapersistservice.entity.SberDataCloudFormattedMessage;
+
+import javax.management.BadAttributeValueExpException;
 
 public interface DataService {
-    void saveMessage(CxTxbLogStat cx_txb_log_stat);
+    void process(SberDataCloudFormattedMessage message);
 }

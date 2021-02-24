@@ -1,4 +1,4 @@
-package ru.sbrf.ckr.sberboard.kafkapersistservice.model;
+package ru.sbrf.ckr.sberboard.kafkapersistservice.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "cx_txb_log_stat")
+@Table(name = "cx_txb_log_stat", schema = "RAW_DATA_nrt")
 public class CxTxbLogStat implements Serializable {
     @Id
     private String row_id;

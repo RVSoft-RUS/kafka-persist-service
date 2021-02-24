@@ -1,6 +1,6 @@
 create table if not exists raw_data_nrt.cx_txb_log_stat
 (
-    row_id varchar(50),
+    row_id varchar(50) primary key,
     created timestamp,
     created_by varchar(250),
     last_upd timestamp,
@@ -18,7 +18,7 @@ alter table raw_data_nrt.cx_txb_log_stat owner to devstaging;
 -------------------------------------------------------------
 create table if not exists raw_data_nrt.TXB_DEPOSIT
 (
-    row_id varchar,
+    row_id varchar primary key,
     created varchar,
     created_by varchar,
     archive_flg varchar,
@@ -59,7 +59,7 @@ alter table raw_data_nrt.TXB_DEPOSIT owner to devstaging;
 -------------------------------------------------------------
 create table if not exists raw_data_nrt.TXB_DEPOSIT_ORIGIN
 (
-    row_id varchar(50),
+    row_id varchar(50) primary key,
     created timestamp,
     created_by varchar(50),
     archive_flg varchar(1),
@@ -113,7 +113,7 @@ alter table raw_data_nrt.TXB_LOG_STAT_N_REASON owner to devstaging;
 -------------------------------------------------------------
 create table if not exists raw_data_nrt.TXB_RANKING
 (
-    name varchar,
+    name varchar primary key,
     emp_id varchar,
     x_i_am_free char(1),
     x_i_am_free_time timestamp,
@@ -132,7 +132,7 @@ alter table raw_data_nrt.TXB_RANKING owner to devstaging;
 -------------------------------------------------------------
 create table if not exists raw_data_nrt.TXB_SCHEDULE
 (
-    row_id varchar(15),
+    row_id varchar(15) primary key,
     name varchar(1024),
     shift_date timestamp,
     shift_name varchar(200),
@@ -148,7 +148,7 @@ alter table raw_data_nrt.TXB_SCHEDULE owner to devstaging;
 -------------------------------------------------------------
 create table if not exists raw_data_nrt.TXB_TIME_OFF
 (
-    row_id varchar(15),
+    row_id varchar(15) primary key,
     name varchar(1024),
     reason varchar(50),
     start_date timestamp,
@@ -222,7 +222,7 @@ alter table raw_data_nrt.x_tlttb owner to devstaging;
 -------------------------------------------------------------
 create table if not exists raw_data_nrt.Users
 (
-    id bigint primary key,
+        id bigint primary key,
         FIO varchar(255),
         STRUCTURE varchar(255),
         RC varchar(255),
