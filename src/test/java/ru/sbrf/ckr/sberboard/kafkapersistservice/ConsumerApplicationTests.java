@@ -1,4 +1,4 @@
-package com.app;
+package ru.sbrf.ckr.sberboard.kafkapersistservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

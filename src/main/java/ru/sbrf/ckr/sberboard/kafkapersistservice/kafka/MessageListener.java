@@ -1,7 +1,7 @@
-package com.app.kafka;
+package ru.sbrf.ckr.sberboard.kafkapersistservice.kafka;
 
-import com.app.service.DataService;
-import com.app.model.CxTxbLogStat;
+import ru.sbrf.ckr.sberboard.kafkapersistservice.service.DataService;
+import ru.sbrf.ckr.sberboard.kafkapersistservice.model.CxTxbLogStat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 

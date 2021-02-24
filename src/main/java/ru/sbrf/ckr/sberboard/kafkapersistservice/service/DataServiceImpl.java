@@ -1,6 +1,6 @@
-package com.app.service;
+package ru.sbrf.ckr.sberboard.kafkapersistservice.service;
 
-import com.app.model.CxTxbLogStat;
+import ru.sbrf.ckr.sberboard.kafkapersistservice.model.CxTxbLogStat;
 import org.springframework.stereotype.Service;
 
 @Service

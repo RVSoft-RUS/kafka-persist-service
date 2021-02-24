@@ -1,6 +1,6 @@
-package com.app.kafka.config;
+package ru.sbrf.ckr.sberboard.kafkapersistservice.kafka.config;
 
-import com.app.model.CxTxbLogStat;
+import ru.sbrf.ckr.sberboard.kafkapersistservice.model.CxTxbLogStat;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;

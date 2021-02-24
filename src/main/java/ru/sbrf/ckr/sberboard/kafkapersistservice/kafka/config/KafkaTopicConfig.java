@@ -1,4 +1,4 @@
-package com.app.kafka.config;
+package ru.sbrf.ckr.sberboard.kafkapersistservice.kafka.config;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;

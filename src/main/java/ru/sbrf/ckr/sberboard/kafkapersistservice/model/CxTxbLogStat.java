@@ -1,4 +1,4 @@
-package com.app.model;
+package ru.sbrf.ckr.sberboard.kafkapersistservice.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
