@@ -14,12 +14,6 @@ public class ConsumerApplication {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(ConsumerApplication.class, args);
 
-//        CxTxbLogStatRepository repo = context.getBean(CxTxbLogStatRepository.class);
-//
-//        CxTxbLogStat stat = new CxTxbLogStat();
-//        stat.setRow_id("qw");
-//        stat.setAction_id("qw1");
-//        repo.insert(stat);
     }
 
     @Bean

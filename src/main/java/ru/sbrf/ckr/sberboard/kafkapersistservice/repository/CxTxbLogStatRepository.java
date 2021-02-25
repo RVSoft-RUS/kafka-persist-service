@@ -1,6 +1,8 @@
 package ru.sbrf.ckr.sberboard.kafkapersistservice.repository;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbLogStat;
 
 /**
@@ -9,6 +11,8 @@ import ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbLogStat;
  * @version 1.0
  * @author Смирнов Роман
  */
+@Repository
+@Transactional
 public interface CxTxbLogStatRepository extends CrudRepository<CxTxbLogStat, String> {
 //    /**
 //     * Метод для добавления объекта CxTxbLogStat.
