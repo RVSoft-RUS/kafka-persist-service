@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="ZZZ" id="XXX">
+
+        <createSequence sequenceName="cx_txb_log_stat_SEQ"
+                        schemaName="raw_data_nrt"
+                        incrementBy="1"
+                        startValue="1"/>
+
+        <createTable tableName="cx_txb_log_stat" schemaName="raw_data_nrt" remarks="no">
+            <column name="cx_txb_log_stat_ID" type="BIGINT" remarks="Ключ"/>
+            <column name="row_id" type="VARCHAR(50)" remarks="id задачи"/>
+            <column name="created" type="TIMESTAMP" remarks="дата-время создания"/>
+            <column name="created_by" type="VARCHAR(250)" remarks="id кем создано"/>
+            <column name="last_upd" type="TIMESTAMP" remarks="дата-время последнего обновления"/>
+            <column name="last_upd_by" type="VARCHAR(150)" remarks="id кем было осуществлено последнее обновление"/>
+            <column name="modification_num" type="VARCHAR(50)" remarks="?"/>
+            <column name="conflict_id" type="VARCHAR(50)" remarks="?"/>
+            <column name="action_id" type="VARCHAR(50)" remarks="id действия"/>
+            <column name="change_dt" type="TIMESTAMP" remarks="дата-время последнего изменения"/>
+            <column name="curr_status" type="VARCHAR(150)" remarks="статус задачи"/>
+            <column name="prev_status" type="VARCHAR(150)" remarks="предыдущий статус"/>
+            <column name="wait" type="VARCHAR(150)" remarks="подразделение от которого ожидается ответ?"/>
+        </createTable>
+
+        <rollback>
+            <dropTable schemaName="raw_data_nrt" tableName="cx_txb_log_stat"/>
+            <dropSequence schemaName="raw_data_nrt" sequenceName="cx_txb_log_stat_SEQ"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,5 +1,6 @@
 package ru.sbrf.ckr.sberboard.kafkapersistservice;
 
+import org.springframework.context.ApplicationContext;
 import ru.sbrf.ckr.sberboard.kafkapersistservice.kafka.MessageListener;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,19 +12,9 @@ import org.springframework.kafka.annotation.EnableKafka;
 public class ConsumerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerApplication.class, args);
+        ApplicationContext context = SpringApplication.run(ConsumerApplication.class, args);
+
     }
-
-//    @Bean
-//    public JsonDeserializer jsonDeserializer() {
-//        return new JsonDeserializer() {
-//            @Override
-//            public Object deserialize(JsonParser p, DeserializationContext context) throws IOException {
-//                return null;
-//            }
-//        };
-//    }
-
 
     @Bean
     public MessageListener messageListener() {
