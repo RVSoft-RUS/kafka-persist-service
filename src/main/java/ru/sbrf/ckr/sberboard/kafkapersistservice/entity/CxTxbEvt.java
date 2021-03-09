@@ -98,7 +98,7 @@ public class CxTxbEvt {
     private LocalDateTime stage2_start;
     private LocalDateTime stage1_start;
     private String sent_bbmo_flg;
-    private LocalDateTime sbrf_duration_planned_min;
+    private BigDecimal sbrf_duration_planned_min;
     private String sbrf_cg_id;
     private String sbbol_login;
     private String sbbol_flg;
@@ -110,7 +110,7 @@ public class CxTxbEvt {
     private String priority_cd;
     private String prev_act_id;
     private String pprb_agr_id;
-    private LocalDateTime pct_complete;
+    private BigDecimal pct_complete;
     private String par_act_id;
     private String owner_postn_id;
     private String owner_per_id;
