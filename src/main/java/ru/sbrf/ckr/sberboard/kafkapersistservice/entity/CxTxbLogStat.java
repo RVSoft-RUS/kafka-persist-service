@@ -20,6 +20,8 @@ public class CxTxbLogStat implements Serializable {
     private LocalDateTime created;
     private String created_by;
     private LocalDateTime last_upd;
+    private String  db_last_upd_src;
+    private LocalDateTime db_last_upd;
     private String last_upd_by;
     private String modification_num;
     private String conflict_id;
