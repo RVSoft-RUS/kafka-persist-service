@@ -15,23 +15,27 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "cx_txb_log_stat", schema = "RAW_DATA_nrt")
 public class CxTxbLogStat implements Serializable {
-    @Id
-    private String row_id;
-    private LocalDateTime created;
-    private String created_by;
-    private LocalDateTime last_upd;
-    private String  db_last_upd_src;
-    private LocalDateTime db_last_upd;
-    private String last_upd_by;
-    private String modification_num;
-    private String conflict_id;
+
     private String action_id;
     private LocalDateTime change_dt;
+    private String conflict_id;
+    private LocalDateTime created;
+    private String created_by;
     private String curr_status;
+    private String db_last_upd_src;
+    private LocalDateTime db_last_upd;
+    private LocalDateTime last_upd;
+    private String last_upd_by;
+    private String modification_num;
     private String prev_status;
+    @Id
+    private String row_id;
     private String wait;
-    private LocalDateTime ctl_validfrom;
     private String ctl_action;
-    private Long ctl_loading;
     private BigDecimal ctl_csn;
+    private Long ctl_loading;
+    private Long ctl_seqno;
+    private LocalDateTime ctl_validfrom;
+
+
 }
