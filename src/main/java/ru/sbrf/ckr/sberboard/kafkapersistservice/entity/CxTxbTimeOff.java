@@ -14,23 +14,22 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "cx_txb_time_off", schema = "RAW_DATA_nrt")
 public class CxTxbTimeOff {
-
-    private LocalDateTime start_date;
     @Id
-    private String row_id;
+    private String rowId;
+    private LocalDateTime startDate;
     private String reason;
-    private String par_row_id;
-    private BigDecimal modification_num;
-    private String last_upd_by;
-    private LocalDateTime last_upd;
-    private LocalDateTime end_date;
-    private String db_last_upd_src;
-    private LocalDateTime db_last_upd;
-    private String created_by;
+    private String parRowId;
+    private BigDecimal modificationNum;
+    private String lastUpdBy;
+    private LocalDateTime lastUpd;
+    private LocalDateTime endDate;
+    private String dbLastUpdSrc;
+    private LocalDateTime dbLastUpd;
+    private String createdBy;
     private LocalDateTime created;
-    private String conflict_id;
-    private LocalDateTime ctl_validfrom;
-    private String ctl_action;
-    private Long ctl_loading;
-    private BigDecimal ctl_csn;
+    private String conflictId;
+    private LocalDateTime ctlValidfrom;
+    private String ctlAction;
+    private Long ctlLoading;
+    private BigDecimal ctlCsn;
 }

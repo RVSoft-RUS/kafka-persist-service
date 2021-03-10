@@ -9,9 +9,9 @@ import java.time.LocalDateTime;
 public class SberDataCloudFormattedMessage<T> implements Serializable {
 
     private String table;
-    private String op_type;
-    private LocalDateTime op_ts;
-    private LocalDateTime current_ts;
+    private String opType;
+    private LocalDateTime opTs;
+    private LocalDateTime currentTs;
     private String pos;
     private T before;
     private T after;

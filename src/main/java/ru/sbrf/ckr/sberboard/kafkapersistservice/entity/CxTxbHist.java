@@ -15,23 +15,23 @@ import java.time.LocalDateTime;
 @Table(name = "cx_txb_hist", schema = "RAW_DATA_nrt")
 public class CxTxbHist {
 
-    private String type;
     @Id
-    private String row_id;
-    private String par_row_id;
-    private String old_value;
-    private String new_value;
-    private BigDecimal modification_num;
-    private String last_upd_by;
-    private LocalDateTime last_upd;
-    private String field_name;
-    private String db_last_upd_src;
-    private LocalDateTime db_last_upd;
-    private String created_by;
+    private String rowId;
+    private String type;
+    private String parRowId;
+    private String oldValue;
+    private String newValue;
+    private BigDecimal modificationNum;
+    private String lastUpdBy;
+    private LocalDateTime lastUpd;
+    private String fieldName;
+    private String dbLastUpdSrc;
+    private LocalDateTime dbLastUpd;
+    private String createdBy;
     private LocalDateTime created;
-    private String conflict_id;
-    private LocalDateTime ctl_validfrom;
-    private String ctl_action;
-    private Long ctl_loading;
-    private BigDecimal ctl_csn;
+    private String conflictId;
+    private LocalDateTime ctlValidfrom;
+    private String ctlAction;
+    private Long ctlLoading;
+    private BigDecimal ctlCsn;
 }
