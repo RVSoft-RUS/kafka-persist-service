@@ -17,21 +17,22 @@ import java.time.LocalDateTime;
 public class CxTxbLogStat implements Serializable {
     @Id
     private String rowId;
-    private LocalDateTime created;
-    private String createdBy;
-    private LocalDateTime lastUpd;
-    private String  dbLastUpdSrc;
-    private LocalDateTime dbLastUpd;
-    private String lastUpdBy;
-    private String modificationNum;
-    private String conflictId;
     private String actionId;
     private LocalDateTime changeDt;
+    private String conflictId;
+    private LocalDateTime created;
+    private String createdBy;
     private String currStatus;
+    private String  dbLastUpdSrc;
+    private LocalDateTime dbLastUpd;
+    private LocalDateTime lastUpd;
+    private String lastUpdBy;
+    private String modificationNum;
     private String prevStatus;
     private String wait;
-    private LocalDateTime ctlValidfrom;
     private String ctlAction;
-    private Long ctlLoading;
     private BigDecimal ctlCsn;
+    private Long ctlLoading;
+    private Long ctlSeqno;
+    private LocalDateTime ctlValidfrom;
 }
