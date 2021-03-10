@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 public class TxbLogStatNReason {
 
     private Long id;
-    private String task_id;
-    private LocalDateTime change_date;
+    private String taskId;
+    private LocalDateTime changeDate;
     private String reason;
     private String status;
 

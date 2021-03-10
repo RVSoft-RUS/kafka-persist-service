@@ -15,27 +15,27 @@ import java.time.LocalDateTime;
 @Table(name = "cx_txb_schedule", schema = "RAW_DATA_nrt")
 public class CxTxbSchedule {
 
-    private BigDecimal shift_start;
-    private String shift_name;
-    private BigDecimal shift_end;
-    private LocalDateTime shift_date;
     @Id
-    private String row_id;
-    private String par_row_id;
-    private BigDecimal modification_num;
-    private String last_upd_by;
-    private LocalDateTime last_upd;
-    private String db_last_upd_src;
-    private LocalDateTime db_last_upd;
-    private String created_by;
+    private String rowId;
+    private BigDecimal shiftStart;
+    private String shiftName;
+    private BigDecimal shiftEnd;
+    private LocalDateTime shiftDate;
+    private String parRowId;
+    private BigDecimal modificationNum;
+    private String lastUpdBy;
+    private LocalDateTime lastUpd;
+    private String dbLastUpdSrc;
+    private LocalDateTime dbLastUpd;
+    private String createdBy;
     private LocalDateTime created;
-    private String conflict_id;
-    private BigDecimal break_start;
-    private BigDecimal break_end;
-    private BigDecimal break2_start;
-    private BigDecimal break2_end;
-    private LocalDateTime ctl_validfrom;
-    private String ctl_action;
-    private Long ctl_loading;
-    private BigDecimal ctl_csn;
+    private String conflictId;
+    private BigDecimal breakStart;
+    private BigDecimal breakEnd;
+    private BigDecimal break2Start;
+    private BigDecimal break2End;
+    private LocalDateTime ctlValidfrom;
+    private String ctlAction;
+    private Long ctlLoading;
+    private BigDecimal ctlCsn;
 }

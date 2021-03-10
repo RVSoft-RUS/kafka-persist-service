@@ -10,16 +10,16 @@ import java.time.LocalDateTime;
 public class TxbRanking {
 
     private String name;
-    private String emp_id;
-    private String x_i_am_free;
-    private LocalDateTime x_i_am_free_time;
-    private LocalDateTime x_freeze_end;
-    private LocalDateTime start_work_dt;
-    private LocalDateTime end_work_dt;
-    private LocalDateTime start_break_dt;
-    private LocalDateTime end_break_dt;
-    private Long task_time_cnt;
+    private String empId;
+    private String xIAmFree;
+    private LocalDateTime xIAmFreeTime;
+    private LocalDateTime xFreezeEnd;
+    private LocalDateTime startWorkDt;
+    private LocalDateTime endWorkDt;
+    private LocalDateTime startBreakDt;
+    private LocalDateTime endBreakDt;
+    private Long taskTimeCnt;
     private Float quotient;
-    private LocalDateTime update_time;
+    private LocalDateTime updateTime;
 
 }

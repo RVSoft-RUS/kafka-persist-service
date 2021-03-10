@@ -9,11 +9,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class TxbTimeOff {
 
-    private String row_id;
+    private String rowId;
     private String name;
     private String reason;
-    private LocalDateTime start_date;
-    private LocalDateTime end_date;
-    private String emp_num;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
+    private String empNum;
 
 }
