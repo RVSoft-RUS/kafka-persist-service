@@ -35,4 +35,5 @@ public class CxTxbLogStat implements Serializable {
     private Long ctlLoading;
     private Long ctlSeqno;
     private LocalDateTime ctlValidfrom;
+
 }
