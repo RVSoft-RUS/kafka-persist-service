@@ -27,22 +27,22 @@ public class DataServiceImpl implements DataService {
     ) {
         repositoryHashMap = new HashMap<>();
         entityHashMap = new HashMap<>();
-        repositoryHashMap.put("cxTxbCallJrn", cxTxbCallJrnRepository);
-        repositoryHashMap.put("cxTxbEvt", cxTxbEvtRepository);
-        repositoryHashMap.put("cxTxbHist", cxTxbHistRepositiry);
-        repositoryHashMap.put("cxTxbListLvl", cxTxbListLvlRepository);
-        repositoryHashMap.put("cxTxbLogStat", cxTxbLogStatRepository);
-        repositoryHashMap.put("cxTxbSchedule", cxTxbScheduleRepository);
-        repositoryHashMap.put("cxTxbSmeny", cxTxbSmenyRepository);
-        repositoryHashMap.put("cxTxbTimeOff", cxTxbTimeOffRepository);
-        entityHashMap.put("cxTxbCallJrn", "ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbCallJrn");
-        entityHashMap.put("cxTxbEvt", "ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbEvt");
-        entityHashMap.put("cxTxbHist", "ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbHist");
-        entityHashMap.put("cxTxbListLvl", "ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbListLvl");
-        entityHashMap.put("cxTxbLogStat", "ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbLogStat");
-        entityHashMap.put("cxTxbSchedule", "ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbSchedule");
-        entityHashMap.put("cxTxbSmeny", "ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbSmeny");
-        entityHashMap.put("cxTxbTimeOff", "ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbTimeOff");
+        repositoryHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_CALL_JRN", cxTxbCallJrnRepository);
+        repositoryHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_EVT", cxTxbEvtRepository);
+        repositoryHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_HIST", cxTxbHistRepositiry);
+        repositoryHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_LIST_LVL", cxTxbListLvlRepository);
+        repositoryHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_LOG_STAT", cxTxbLogStatRepository);
+        repositoryHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_SCHEDULE", cxTxbScheduleRepository);
+        repositoryHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_SMENY", cxTxbSmenyRepository);
+        repositoryHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_TIME_OFF", cxTxbTimeOffRepository);
+        entityHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_CALL_JRN", "ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbCallJrn");
+        entityHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_EVT", "ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbEvt");
+        entityHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_HIST", "ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbHist");
+        entityHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_LIST_LVL", "ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbListLvl");
+        entityHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_LOG_STAT", "ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbLogStat");
+        entityHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_SCHEDULE", "ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbSchedule");
+        entityHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_SMENY", "ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbSmeny");
+        entityHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_TIME_OFF", "ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbTimeOff");
 
     }
 
