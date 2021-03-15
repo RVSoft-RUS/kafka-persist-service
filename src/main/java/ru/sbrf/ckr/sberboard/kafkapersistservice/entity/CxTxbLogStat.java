@@ -7,24 +7,33 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "cx_txb_log_stat", schema = "RAW_DATA_nrt")
+@Table(name = "CX_TXB_LOG_STAT", schema = "RAW_DATA_NRT")
 public class CxTxbLogStat implements Serializable {
     @Id
-    private String row_id;
+    private String rowId;
+    private String actionId;
+    private LocalDateTime changeDt;
+    private String conflictId;
     private LocalDateTime created;
-    private String created_by;
-    private LocalDateTime last_upd;
-    private String last_upd_by;
-    private String modification_num;
-    private String conflict_id;
-    private String action_id;
-    private LocalDateTime change_dt;
-    private String curr_status;
-    private String prev_status;
+    private String createdBy;
+    private String currStatus;
+    private String  dbLastUpdSrc;
+    private LocalDateTime dbLastUpd;
+    private LocalDateTime lastUpd;
+    private String lastUpdBy;
+    private String modificationNum;
+    private String prevStatus;
     private String wait;
+    private String ctlAction;
+    private BigDecimal ctlCsn;
+    private Long ctlLoading;
+    private Long ctlSeqno;
+    private LocalDateTime ctlValidfrom;
+
 }

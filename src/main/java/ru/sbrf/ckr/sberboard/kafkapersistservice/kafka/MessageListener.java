@@ -9,7 +9,7 @@ public class MessageListener {
     @Autowired
     private DataService dataService;
 
-    @KafkaListener(groupId = "g1", topics = "${kafka.topic.name}", containerFactory = "singleFactory")
+    @KafkaListener(groupId = "g1", topics = "#{'${kafka.topic.names}'.split(',')}", containerFactory = "singleFactory")
     public void listener(SberDataCloudFormattedMessage message) {
         dataService.process(message);
     }

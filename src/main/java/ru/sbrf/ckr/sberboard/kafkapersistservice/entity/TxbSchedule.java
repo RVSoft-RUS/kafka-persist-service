@@ -9,14 +9,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class TxbSchedule {
 
-    private String row_id;
+    private String rowId;
     private String name;
-    private LocalDateTime shift_date;
-    private String shift_name;
-    private LocalDateTime shift_start;
-    private LocalDateTime shift_end;
-    private LocalDateTime break_start;
-    private LocalDateTime break_end;
-    private String emp_num;
+    private LocalDateTime shiftDate;
+    private String shiftName;
+    private LocalDateTime shiftStart;
+    private LocalDateTime shiftEnd;
+    private LocalDateTime breakStart;
+    private LocalDateTime breakEnd;
+    private String empNum;
 
 }

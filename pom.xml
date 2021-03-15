@@ -74,20 +74,20 @@
                     </excludes>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.liquibase</groupId>
-                <artifactId>liquibase-maven-plugin</artifactId>
-                <version>${liquibase.version}</version>
-                <configuration>
-                    <driver>org.postgresql.Driver</driver>
-                    <server>sberboard</server>
-                    <changeLogFile>src/main/resources/db/db.changelog-master.yaml</changeLogFile>
-                    <!-- log  -->
-                    <verbose>true</verbose>
-                    <logging>info</logging>
-                    <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.liquibase</groupId>-->
+<!--                <artifactId>liquibase-maven-plugin</artifactId>-->
+<!--                <version>${liquibase.version}</version>-->
+<!--                <configuration>-->
+<!--                    <driver>org.postgresql.Driver</driver>-->
+<!--                    <server>sberboard</server>-->
+<!--                    <changeLogFile>src/main/resources/db/db.changelog-master.yaml</changeLogFile>-->
+<!--                    &lt;!&ndash; log  &ndash;&gt;-->
+<!--                    <verbose>true</verbose>-->
+<!--                    <logging>info</logging>-->
+<!--                    <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 
