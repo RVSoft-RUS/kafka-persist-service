@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "cx_txb_time_off", schema = "RAW_DATA_nrt")
+@Table(name = "CX_TXB_TIME_OFF", schema = "RAW_DATA_NRT")
 public class CxTxbTimeOff {
     @Id
     private String rowId;

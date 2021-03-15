@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "cx_txb_log_stat", schema = "RAW_DATA_nrt")
+@Table(name = "CX_TXB_LOG_STAT", schema = "RAW_DATA_NRT")
 public class CxTxbLogStat implements Serializable {
     @Id
     private String rowId;

@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "cx_txb_call_jrn", schema = "RAW_DATA_nrt")
+@Table(name = "CX_TXB_CALL_JRN", schema = "RAW_DATA_NRT")
 public class CxTxbCallJrn {
 
     @Id
