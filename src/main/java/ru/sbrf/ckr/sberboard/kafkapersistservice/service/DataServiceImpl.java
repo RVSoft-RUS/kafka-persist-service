@@ -4,16 +4,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
-import ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbLogStat;
 import ru.sbrf.ckr.sberboard.kafkapersistservice.entity.SberDataCloudFormattedMessage;
+import ru.sbrf.ckr.sberboard.kafkapersistservice.kafkalogs.audit.KafkaAuditService;
+import ru.sbrf.ckr.sberboard.kafkapersistservice.kafkalogs.audit.SubTypeIdAuditEvent;
+import ru.sbrf.ckr.sberboard.kafkapersistservice.kafkalogs.logging.KafkaLoggingService;
+import ru.sbrf.ckr.sberboard.kafkapersistservice.kafkalogs.logging.SubTypeIdLoggingEvent;
 import ru.sbrf.ckr.sberboard.kafkapersistservice.repository.*;
 
-import javax.persistence.Entity;
 import java.util.HashMap;
 
 @Service
+
 public class DataServiceImpl implements DataService {
-    private HashMap<String, CrudRepository> repositoryHashMap;
+    private final HashMap<String, CrudRepository> repositoryHashMap;
     private static HashMap<String, String> entityHashMap;
 
     public DataServiceImpl(CxTxbCallJrnRepository cxTxbCallJrnRepository,
@@ -49,32 +52,40 @@ public class DataServiceImpl implements DataService {
     @Autowired
     ObjectMapper mapper;
 
+    @Autowired
+    private KafkaLoggingService loggingService;
+
+    @Autowired
+    private KafkaAuditService auditService;
+
     @Override
-    public void process(SberDataCloudFormattedMessage formattedMessage) {
-//        System.out.println("Save object: " + formattedMessage);
-//        if (!formattedMessage.getTable().equalsIgnoreCase("cxTxbLogStat")) {
-//            System.out.println("Не соответствует имя таблицы.");
-//            return;
-//        }
+    public void process(SberDataCloudFormattedMessage<?> formattedMessage) {
+
 
         switch (OperationType.valueOf(formattedMessage.getOp_type())) {
             case I:
             case U:
                 try {
-                    repositoryHashMap.get(formattedMessage.getTable()).save(mapper.convertValue(formattedMessage.getAfter(), Class.forName(entityHashMap.get(formattedMessage.getTable()))));
-                    System.out.println("Saved object: " + formattedMessage);
+                    repositoryHashMap.get(formattedMessage.getTable())
+                            .save(mapper.convertValue(formattedMessage.getAfter(), Class.forName(entityHashMap.get(formattedMessage.getTable()))));
+                    System.out.println("Saved object:\n" + formattedMessage);
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
                 break;
             case D:
                 try {
-                    repositoryHashMap.get(formattedMessage.getTable()).delete(mapper.convertValue(formattedMessage.getBefore(), Class.forName(entityHashMap.get(formattedMessage.getTable()))));
-                    System.out.println("Deleted object: " + formattedMessage);
+                    repositoryHashMap.get(formattedMessage.getTable())
+                            .delete(mapper.convertValue(formattedMessage.getBefore(), Class.forName(entityHashMap.get(formattedMessage.getTable()))));
+                    System.out.println("Deleted object:\n" + formattedMessage);
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
         }
+
+        //Пример использования
+        loggingService.send("QQ", SubTypeIdLoggingEvent.INFO.name());
+        auditService.send("Aqq", SubTypeIdAuditEvent.F0.name());
 
     }
 }

@@ -1,7 +1,6 @@
 package ru.sbrf.ckr.sberboard.kafkapersistservice.kafka.config;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
-import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,8 +13,6 @@ import java.util.Map;
 public class KafkaTopicConfig {
     @Value(value = "${kafka.bootstrapAddress}")
     private String bootstrapAddress;
-//    @Value(value = "${kafka.topic.names}")
-//    private String topicName;
 
     @Bean
     public KafkaAdmin kafkaAdmin() {

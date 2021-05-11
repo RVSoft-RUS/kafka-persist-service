@@ -1,5 +1,7 @@
 package ru.sbrf.ckr.sberboard.kafkapersistservice.kafka.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,15 +21,15 @@ import java.util.Map;
 @EnableKafka
 @Configuration
 public class KafkaConsumerConfig {
-    @Value("${kafka.server}")
+    @Value("${kafka.bootstrapAddress}")
     private String kafkaServer;
 
-    @Value("${kafka.consumer.id}")
+    @Value("${kafka.group}")
     private String kafkaGroupId;
 
     @Bean
     public KafkaListenerContainerFactory<?> batchFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, SberDataCloudFormattedMessage> factory =
+        ConcurrentKafkaListenerContainerFactory<String, SberDataCloudFormattedMessage<?>> factory =
                 new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         factory.setBatchListener(true);
@@ -36,7 +38,7 @@ public class KafkaConsumerConfig {
 
     @Bean
     public KafkaListenerContainerFactory<?> singleFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, SberDataCloudFormattedMessage> factory =
+        ConcurrentKafkaListenerContainerFactory<String, SberDataCloudFormattedMessage<?>> factory =
                 new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         factory.setBatchListener(false);
@@ -51,16 +53,22 @@ public class KafkaConsumerConfig {
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,JsonDeserializer.class);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, kafkaGroupId);
         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, true);
-        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG,"earliest");
+        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG,"latest");
         return props;
     }
 
     @Bean
-    public ConsumerFactory<String, SberDataCloudFormattedMessage> consumerFactory() {
+    public ConsumerFactory<String, SberDataCloudFormattedMessage<?>> consumerFactory() {
         return new DefaultKafkaConsumerFactory<>(
                 this.consumerConfigs(),
                 new StringDeserializer(),
                 new JsonDeserializer<>(SberDataCloudFormattedMessage.class, false));
     }
 
+    @Bean
+    public ObjectMapper mapper(){
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        return mapper;
+    }
 }
