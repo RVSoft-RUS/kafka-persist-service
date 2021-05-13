@@ -4,15 +4,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
-import ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbCallJrn;
 import ru.sbrf.ckr.sberboard.kafkapersistservice.entity.SberDataCloudFormattedMessage;
 import ru.sbrf.ckr.sberboard.kafkapersistservice.kafkalogs.audit.KafkaAuditService;
-import ru.sbrf.ckr.sberboard.kafkapersistservice.kafkalogs.audit.SubTypeIdAuditEvent;
 import ru.sbrf.ckr.sberboard.kafkapersistservice.kafkalogs.logging.KafkaLoggingService;
 import ru.sbrf.ckr.sberboard.kafkapersistservice.kafkalogs.logging.SubTypeIdLoggingEvent;
 import ru.sbrf.ckr.sberboard.kafkapersistservice.repository.*;
 
-import java.time.LocalDateTime;
 import java.util.HashMap;
 
 @Service
@@ -20,7 +17,6 @@ import java.util.HashMap;
 public class DataServiceImpl implements DataService {
     private final HashMap<String, CrudRepository> repositoryHashMap;
     private static HashMap<String, String> entityHashMap;
-    private CxTxbCallJrnRepository cxTxbCallJrnRepository;
 
     public DataServiceImpl(CxTxbCallJrnRepository cxTxbCallJrnRepository,
                            CxTxbEvtRepository cxTxbEvtRepository,
@@ -31,7 +27,6 @@ public class DataServiceImpl implements DataService {
                            CxTxbSmenyRepository cxTxbSmenyRepository,
                            CxTxbTimeOffRepository cxTxbTimeOffRepository
     ) {
-        this.cxTxbCallJrnRepository = cxTxbCallJrnRepository;
         repositoryHashMap = new HashMap<>();
         entityHashMap = new HashMap<>();
         repositoryHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_CALL_JRN", cxTxbCallJrnRepository);
@@ -64,24 +59,13 @@ public class DataServiceImpl implements DataService {
 
     @Override
     public void process(SberDataCloudFormattedMessage<?> formattedMessage) {
-//        CrudRepository<CxTxbCallJrn, String> repository = (CrudRepository<CxTxbCallJrn, String>) repositoryHashMap.get("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_CALL_JRN");
-//        CxTxbCallJrn cxTxbCallJrn = new CxTxbCallJrn();
-//        cxTxbCallJrn.setRowId("045-7854-vb");
-//        cxTxbCallJrn.setCtlAction("045");
-//        cxTxbCallJrn.setCreated(LocalDateTime.now());
-//        cxTxbCallJrnRepository.save(cxTxbCallJrn);
-
         switch (OperationType.valueOf(formattedMessage.getOp_type())) {
             case I:
             case U:
                 try {
-                    CrudRepository repository2 = repositoryHashMap.get(formattedMessage.getTable());
-                    Object obj = mapper.convertValue(formattedMessage.getAfter(), Class.forName(entityHashMap.get(formattedMessage.getTable())));
-                    repository2.save(obj);
-
-//                    repositoryHashMap.get(formattedMessage.getTable())
-//                            .save(mapper.convertValue(formattedMessage.getAfter(), Class.forName(entityHashMap.get(formattedMessage.getTable()))));
-                    System.out.println("Saved object:\n" + formattedMessage);
+                    repositoryHashMap.get(formattedMessage.getTable())
+                            .save(mapper.convertValue(formattedMessage.getAfter(), Class.forName(entityHashMap.get(formattedMessage.getTable()))));
+                    loggingService.send("Saved object: " + formattedMessage, SubTypeIdLoggingEvent.DEBUG.name());
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -90,15 +74,13 @@ public class DataServiceImpl implements DataService {
                 try {
                     repositoryHashMap.get(formattedMessage.getTable())
                             .delete(mapper.convertValue(formattedMessage.getBefore(), Class.forName(entityHashMap.get(formattedMessage.getTable()))));
-                    System.out.println("Deleted object:\n" + formattedMessage);
+                    loggingService.send("Deleted object: " + formattedMessage, SubTypeIdLoggingEvent.DEBUG.name());
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
         }
-
-        //Пример использования
-        loggingService.send("QQ", SubTypeIdLoggingEvent.INFO.name());
-        auditService.send("Aqq", SubTypeIdAuditEvent.F0.name());
-
+//Пример использования
+//        loggingService.send("Log", SubTypeIdLoggingEvent.INFO.name());
+//        auditService.send("Audit", SubTypeIdAuditEvent.F0.name());
     }
 }

@@ -1,4 +1,4 @@
-package ru.sbrf.ckr.sberboard.kafkapersistservice.kafka.config;
+package ru.sbrf.ckr.sberboard.kafkapersistservice.config.kafkaconsumer;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.springframework.beans.factory.annotation.Value;
