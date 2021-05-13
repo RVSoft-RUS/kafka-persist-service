@@ -1,4 +1,4 @@
-package ru.sbrf.ckr.sberboard.kafkapersistservice.kafkalogs.config;
+package ru.sbrf.ckr.sberboard.kafkapersistservice.config.kafkalogaudit;
 
 import java.io.Serializable;
 

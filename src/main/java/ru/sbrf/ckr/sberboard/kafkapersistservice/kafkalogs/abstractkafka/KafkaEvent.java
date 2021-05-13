@@ -1,4 +1,4 @@
-package ru.sbrf.ckr.sberboard.kafkapersistservice.kafkalogs.config;
+package ru.sbrf.ckr.sberboard.kafkapersistservice.kafkalogs.abstractkafka;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonFormat;
