@@ -1,4 +1,4 @@
-package ru.sbrf.ckr.sberboard.kafkapersistservice.kafka.config;
+package ru.sbrf.ckr.sberboard.kafkapersistservice.config.kafkaconsumer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;

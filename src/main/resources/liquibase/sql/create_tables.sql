@@ -1,3 +1,5 @@
+create schema if not exists raw_data_nrt;
+
 create table if not exists raw_data_nrt.cx_txb_log_stat
 (
     row_id varchar(50) primary key,

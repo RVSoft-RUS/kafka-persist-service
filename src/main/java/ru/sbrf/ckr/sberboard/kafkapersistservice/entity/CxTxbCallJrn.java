@@ -3,6 +3,7 @@ package ru.sbrf.ckr.sberboard.kafkapersistservice.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -16,11 +17,17 @@ import java.time.LocalDateTime;
 public class CxTxbCallJrn {
 
     @Id
+    @Column(name = "row_id")
     private String rowId;
+    @Column(name = "x_comment")
     private String xComment;
+    @Column(name = "txb_action_id")
     private String txbActionId;
+    @Column(name = "tb_name")
     private String tbName;
+    @Column(name = "tb_code")
     private String tbCode;
+    @Column(name = "start_dt")
     private LocalDateTime startDt;
     private String segment;
     private String result;
