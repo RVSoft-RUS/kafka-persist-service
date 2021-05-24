@@ -19,7 +19,7 @@ public class DataServiceImpl implements DataService {
     private static HashMap<String, String> entityHashMap;
 
     public DataServiceImpl(CxTxbEvtRepository cxTxbEvtRepository,
-                           CxTxbHistRepositiry cxTxbHistRepositiry,
+                           CxTxbHistRepository cxTxbHistRepository,
                            CxTxbLogStatRepository cxTxbLogStatRepository,
                            CxDepositRepository cxDepositRepository,
                            SSrvReqXRepository sSrvReqXRepository
@@ -27,7 +27,7 @@ public class DataServiceImpl implements DataService {
         repositoryHashMap = new HashMap<>();
         entityHashMap = new HashMap<>();
         repositoryHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_EVT", cxTxbEvtRepository);
-        repositoryHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_HIST", cxTxbHistRepositiry);
+        repositoryHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_HIST", cxTxbHistRepository);
         repositoryHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_LOG_STAT", cxTxbLogStatRepository);
         repositoryHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_DEPOSIT", cxDepositRepository);
         repositoryHashMap.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_S_SRV_REQ_X", sSrvReqXRepository);

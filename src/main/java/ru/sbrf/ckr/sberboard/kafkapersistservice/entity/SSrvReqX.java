@@ -387,4 +387,14 @@ public class SSrvReqX {
     private String xEfsId;
     @Column(name = "X_PSF_INQUIRY_FLG")
     private String xPsfInquiryFlg;
+    @Column(name = "ctl_Action")
+    private String ctlAction;
+    @Column(name = "ctl_Csn")
+    private BigDecimal ctlCsn;
+    @Column(name = "ctl_Loading")
+    private Long ctlLoading;
+    @Column(name = "ctl_Seqno")
+    private Long ctlSeqno;
+    @Column(name = "ctl_Validfrom")
+    private LocalDateTime ctlValidfrom;
 }
