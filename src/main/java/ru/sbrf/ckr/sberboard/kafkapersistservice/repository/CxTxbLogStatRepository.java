@@ -8,13 +8,12 @@ import ru.sbrf.ckr.sberboard.kafkapersistservice.entity.CxTxbLogStat;
 /**
  * Интерфейс для работы с объектами CxTxbLogStat из базы
  *
- * @version 1.0
  * @author Смирнов Роман
+ * @version 1.0
  */
 @Repository
-@Transactional
-public interface CxTxbLogStatRepository extends CrudRepository<CxTxbLogStat, String> {
-//    /**
+public interface CxTxbLogStatRepository extends CrudRepository<CxTxbLogStat, String>, DeleteByCtlValidfromBefore {
+    //    /**
 //     * Метод для добавления объекта CxTxbLogStat.
 //     *
 //     * @param cxTxbLogStat - object after
