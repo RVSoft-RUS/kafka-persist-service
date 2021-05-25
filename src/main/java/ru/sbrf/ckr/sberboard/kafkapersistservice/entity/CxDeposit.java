@@ -15,6 +15,9 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "CX_DEPOSIT", schema = "RAW_DATA_NRT")
 public class CxDeposit {
+    @Id
+    @Column (name = "ROW_ID")
+    private String rowId;
     @Column (name = "withdrwl_Order_Flg")
     private String withdrwlOrderFlg;
     @Column (name = "vsp_Id")
@@ -24,9 +27,6 @@ public class CxDeposit {
     private String settlAccnt;
     @Column (name = "scnd_Line_Ret_Flg")
     private String scndLineRetFlg;
-    @Column (name = "ROW_ID")
-    @Id
-    private String rowId;
     private String route;
     @Column (name = "ret_Swift")
     private String retSwift;
@@ -171,4 +171,6 @@ public class CxDeposit {
     private LocalDateTime ctlValidfrom;
     @Column (name = "ctl_Action")
     private String ctlAction;
+    @Column(name = "CTL_SEQNO")
+    private Long ctlSeqno;
 }

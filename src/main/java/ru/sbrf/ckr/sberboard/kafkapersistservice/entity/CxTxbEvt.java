@@ -3,7 +3,6 @@ package ru.sbrf.ckr.sberboard.kafkapersistservice.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -12,8 +11,9 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "CX_TXB_EVT", schema = "RAW_DATA_NRT")
 public class CxTxbEvt {
-    @EmbeddedId
-    private CompositeKey compositeKey;
+    @Id
+    @Column(name = "ROW_ID")
+    private String rowId;
     private String zp;
     @Column(name = "x_Txb_Source")
     private String xTxbSource;
@@ -131,6 +131,8 @@ public class CxTxbEvt {
     private String xIcComment;
     @Column(name = "x_Ex_Created_By")
     private String xExCreatedBy;
+    @Column(name = "X_EXPERTICE_ID")
+    private String xExperticeId;
     @Column(name = "x_Doc")
     private String xDoc;
     @Column(name = "x_Delegated_Flg")
@@ -186,6 +188,7 @@ public class CxTxbEvt {
     private String sbbolLogin;
     @Column(name = "sbbol_Flg")
     private String sbbolFlg;
+    @Column(name = "result_")
     private String result;
     @Column(name = "reg_Address")
     private String regAddress;
@@ -286,19 +289,7 @@ public class CxTxbEvt {
     private Long ctlLoading;
     @Column(name = "ctl_Csn")
     private BigDecimal ctlCsn;
+    @Column(name = "CTL_SEQNO")
+    private Long ctlSeqno;
 }
 
-@EqualsAndHashCode
-@ToString
-@Embeddable
-class CompositeKey implements Serializable {
-    static final long serialVersionUID = 0xEEF012ABC0L;
-
-    @Getter
-    @Setter
-    private String ROW_ID;
-
-    @Getter
-    @Setter
-    private String X_EXPERTICE_ID;
-}
