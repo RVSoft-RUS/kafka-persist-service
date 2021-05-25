@@ -19,6 +19,7 @@ public class CxTxbHist {
     @Id
     @Column(name = "ROW_ID")
     private String rowId;
+    @Column(name = "type_")
     private String type;
     @Column(name = "par_Row_Id")
     private String parRowId;
@@ -51,4 +52,7 @@ public class CxTxbHist {
     private Long ctlLoading;
     @Column(name = "ctl_Csn")
     private BigDecimal ctlCsn;
+    @Column(name = "CTL_SEQNO")
+    private Long ctlSeqno;
+
 }
