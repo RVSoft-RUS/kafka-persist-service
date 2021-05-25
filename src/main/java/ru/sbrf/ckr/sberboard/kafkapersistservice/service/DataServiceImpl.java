@@ -71,8 +71,5 @@ public class DataServiceImpl implements DataService {
                     e.printStackTrace();
                 }
         }
-//Пример использования
-//        loggingService.send("Log", SubTypeIdLoggingEvent.INFO.name());
-//        auditService.send("Audit", SubTypeIdAuditEvent.F0.name());
     }
 }

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+
+<!--    <Resource name="jdbc/Staging"-->
+<!--              global="jdbc/Staging"-->
+<!--              auth="Container"-->
+<!--              factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"-->
+<!--              type="javax.sql.DataSource"-->
+<!--              driverClassName="org.postgresql.Driver"-->
+<!--              url="jdbc:postgresql://10.53.116.32:5432/staging"-->
+<!--              username="devstaging"-->
+<!--              password="devstaging"-->
+<!--              maxTotal="20"-->
+<!--              maxIdle="10"-->
+<!--              initialSize="5"-->
+<!--              maxWaitMillis="-1"/>-->
+
+<!--    <Environment name="kafka/bootstrapServers" value="10.53.223.8:9092, 10.53.223.204:9092, 10.53.223.63:9092"-->
+<!--                 type="java.lang.String" override="false"/>-->
+<!--&lt;!&ndash;    <Environment name="kafka/bootstrapServers" value="10.53.223.8:9092, 10.53.223.204:9092, 10.53.223.63:9092"&ndash;&gt;-->
+<!--&lt;!&ndash;                 type="java.lang.String" override="false"/>&ndash;&gt;-->
+<!--    &lt;!&ndash;TODO подставить корректный id приложения. Временно пользуемся id для Сервис преобразования&ndash;&gt;-->
+<!--    &lt;!&ndash;TODO id нашего приложения: incrservice-ser-4d39-8aec-c5fc1afddb5e&ndash;&gt;-->
+<!--    <Environment name="kafka/appId" value="sbrdservice-ser-421a-b27e-817a2339cb54"-->
+<!--                 type="java.lang.String" override="false"/>-->
+<!--    &lt;!&ndash;TODO подставить корректный id приложения. Временно пользуемся id для Сервис преобразования&ndash;&gt;-->
+<!--    <Environment name="kafka/topicName" value="sbrdservice-ser-421a-b27e-817a2339cb54"-->
+<!--                 type="java.lang.String" override="false"/>-->
+
+<!--    <Environment name="kafka/modeId" value="SBERBOARD-INCREMENT-SAVE-AGENT"-->
+<!--                 type="java.lang.String" override="false"/>-->
+
+<!--    <Environment name="logs/filePath" value="c:/Temp/"-->
+<!--                 type="java.lang.String" override="false"/>-->
+
+<!--    <Environment name="logs/arhSize" value="10M"-->
+<!--                 type="java.lang.String" override="false"/>-->
+
+<!--    <Environment name="increment/mode/manual" value="OFF"-->
+<!--                 type="java.lang.String" override="false"/>-->
+
+<!--    <Environment name="increment/manualMode/packageSmd" value=""-->
+<!--                 type="java.lang.String" override="false"/>-->
+
+<!--    <Environment name="increment/pagination/pageSize" value="30"-->
+<!--                 type="java.lang.String" override="false"/>-->
+
+</Context>
