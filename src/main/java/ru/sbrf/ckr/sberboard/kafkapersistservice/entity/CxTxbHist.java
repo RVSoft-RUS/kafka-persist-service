@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "CX_TXB_HIST", schema = "RAW_DATA_NRT")
-public class CxTxbHist {
+public class CxTxbHist extends MessageObject {
 
     @Id
     @Column(name = "ROW_ID")
@@ -54,5 +54,4 @@ public class CxTxbHist {
     private BigDecimal ctlCsn;
     @Column(name = "CTL_SEQNO")
     private Long ctlSeqno;
-
 }

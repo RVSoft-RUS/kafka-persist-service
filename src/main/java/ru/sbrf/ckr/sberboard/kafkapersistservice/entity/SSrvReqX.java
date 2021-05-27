@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "S_SRV_REQ_X", schema = "RAW_DATA_NRT")
-public class SSrvReqX {
+public class SSrvReqX extends MessageObject {
     @Id
     @Column(name = "ROW_ID")
     private String rowId;

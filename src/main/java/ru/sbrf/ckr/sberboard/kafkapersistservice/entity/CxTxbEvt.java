@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "CX_TXB_EVT", schema = "RAW_DATA_NRT")
-public class CxTxbEvt {
+public class CxTxbEvt extends MessageObject {
     @Id
     @Column(name = "ROW_ID")
     private String rowId;
