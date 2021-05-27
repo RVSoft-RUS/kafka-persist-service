@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -15,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "CX_TXB_LOG_STAT", schema = "RAW_DATA_NRT")
-public class CxTxbLogStat implements Serializable {
+public class CxTxbLogStat extends MessageObject {
     @Id
     @Column(name = "ROW_ID")
     private String rowId;

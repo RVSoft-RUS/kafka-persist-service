@@ -4,10 +4,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
+import ru.sbrf.ckr.sberboard.kafkapersistservice.entity.MessageObject;
 import ru.sbrf.ckr.sberboard.kafkapersistservice.entity.SberDataCloudFormattedMessage;
 import ru.sbrf.ckr.sberboard.kafkapersistservice.kafkalogs.audit.KafkaAuditService;
 import ru.sbrf.ckr.sberboard.kafkapersistservice.kafkalogs.logging.KafkaLoggingService;
-import ru.sbrf.ckr.sberboard.kafkapersistservice.kafkalogs.logging.SubTypeIdLoggingEvent;
 import ru.sbrf.ckr.sberboard.kafkapersistservice.repository.*;
 
 import java.util.HashMap;
@@ -50,26 +50,24 @@ public class DataServiceImpl implements DataService {
     private KafkaAuditService auditService;
 
     @Override
-    public void process(SberDataCloudFormattedMessage<?> formattedMessage) {
+    public void process(SberDataCloudFormattedMessage<?> formattedMessage) throws Exception {
         switch (OperationType.valueOf(formattedMessage.getOp_type())) {
             case I:
-            case U:
-                try {
-                    repositoryHashMap.get(formattedMessage.getTable())
-                            .save(mapper.convertValue(formattedMessage.getAfter(), Class.forName(entityHashMap.get(formattedMessage.getTable()))));
-                    loggingService.send("Saved object: " + formattedMessage, SubTypeIdLoggingEvent.DEBUG.name());
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
+            case U: {
+                MessageObject messageObject = (MessageObject) mapper.convertValue(formattedMessage.getAfter(), Class.forName(entityHashMap.get(formattedMessage.getTable())));
+                if (messageObject.getUnknownFields() != null) {
+                    auditService.sendExtraFields(formattedMessage, messageObject);
                 }
-                break;
+                repositoryHashMap.get(formattedMessage.getTable())
+                        .save(messageObject);
+                auditService.sendOperationMessage(formattedMessage);
+            }
+            break;
             case D:
-                try {
-                    repositoryHashMap.get(formattedMessage.getTable())
-                            .delete(mapper.convertValue(formattedMessage.getBefore(), Class.forName(entityHashMap.get(formattedMessage.getTable()))));
-                    loggingService.send("Deleted object: " + formattedMessage, SubTypeIdLoggingEvent.DEBUG.name());
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
+                MessageObject messageObject = (MessageObject) mapper.convertValue(formattedMessage.getBefore(), Class.forName(entityHashMap.get(formattedMessage.getTable())));
+                repositoryHashMap.get(formattedMessage.getTable())
+                        .delete(messageObject);
+                auditService.sendOperationMessage(formattedMessage);
         }
     }
 }
