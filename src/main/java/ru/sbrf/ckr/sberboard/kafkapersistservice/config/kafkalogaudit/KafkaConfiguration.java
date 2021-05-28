@@ -9,6 +9,7 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.transaction.KafkaTransactionManager;
+import ru.sbrf.ckr.sberboard.kafkapersistservice.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,15 +19,21 @@ public class KafkaConfiguration {
 
     public static final String SBERBOARD_SERVICE_ID_CONFIG = "sberboard-service-client";
     public static final String SBERBOARD_SERVICE_TRANSACTIONAL_ID_CONFIG = "sberboard-service-transactional-id";
-    public static final String SECURITY_PROTOCOL_VALUE = "PLAINTEXT";
+    public static final String SECURITY_PROTOCOL_VALUE = Utils.getJNDIValue("java:comp/env/kafkaAudit/SecurityProtocol");
     public static final String SBERBOARD_SERVICE_TRANSACTIONAL_ID = "sberboard-service-transactional-id";
     public static final String ACKS_CONFIG = "all";
+    public static final String TRUST_STORE_LOCATION = Utils.getJNDIValue("java:comp/env/kafkaAudit/trustStoreLocation");
+    public static final String TRUST_STORE_PASSWORD = Utils.getJNDIValue("java:comp/env/kafkaAudit/trustStorePassword");
+    public static final String KEY_PASSWORD = Utils.getJNDIValue("java:comp/env/kafkaAudit/keyPassword");
+    public static final String KEY_STORE_PASSWORD = Utils.getJNDIValue("java:comp/env/kafkaAudit/keyStorePassword");
+    public static final String KEY_STORE_LOCATION = Utils.getJNDIValue("java:comp/env/kafkaAudit/keyStoreLocation");
 
 //    private static final Logger logger = LogManager.getLogger("KafkaConfiguration");
 
     @Bean
     public ProducerFactory<String, String> producerFactory() {
-        String bootstrapServers = "10.53.223.8:9092, 10.53.223.204:9092, 10.53.223.63:9092";
+        String bootstrapServers = Utils.getJNDIValue("java:comp/env/kafkaAudit/bootstrapServers");
+
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         configProps.put(ProducerConfig.ACKS_CONFIG, ACKS_CONFIG);
@@ -42,14 +49,12 @@ public class KafkaConfiguration {
 
     @Bean
     public KafkaSettings getKafkaSettings(){
-//        String topicName = Utils.getJNDIValue("java:comp/env/kafka/topicName");
-        String topicName = "sbrdservice-ser-421a-b27e-817a2339cb54";
-//        String modeId = Utils.getJNDIValue("java:comp/env/kafka/modeId");
-        String modeId = "SBERBOARD-PERSIST-AGENT";
-//        String appId = Utils.getJNDIValue("java:comp/env/kafka/appId");
+        String topicName = Utils.getJNDIValue("java:comp/env/kafkaAudit/topicName");
+        String modeId = Utils.getJNDIValue("java:comp/env/kafkaAudit/modeId");
+//        String modeId = "SBERBOARD-PERSIST-AGENT";
+//        String appId = Utils("java:comp/env/kafka/appId");
         String appId = "sbrdservice-ser-421a-b27e-817a2339cb54";
-//        String bootstrapServers = Utils.getJNDIValue("java:comp/env/kafka/bootstrapServers");
-        String bootstrapServers = "10.53.223.8:9092, 10.53.223.204:9092, 10.53.223.63:9092";
+        String bootstrapServers = Utils.getJNDIValue("java:comp/env/kafkaAudit/bootstrapServers");
         KafkaSettings kafkaSettings = new KafkaSettings();
         kafkaSettings.setAppId(appId);
         kafkaSettings.setModeId(modeId);
@@ -65,7 +70,6 @@ public class KafkaConfiguration {
 
     @Bean
     @Qualifier("kafkaTransactionManager")
-//    @Qualifier("transactionManager")
     public KafkaTransactionManager<String, String> kafkaTransactionManager() {
         return new KafkaTransactionManager<>(producerFactory());
     }

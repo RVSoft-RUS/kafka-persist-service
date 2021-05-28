@@ -25,6 +25,8 @@
         <tomcat.path>/sberboard-service</tomcat.path>
         <tomcat.username>admin</tomcat.username>
         <tomcat.password>admin</tomcat.password>
+
+        <log4j2.version>2.13.3</log4j2.version>
     </properties>
 
     <dependencies>
@@ -97,6 +99,22 @@
 <!--            <artifactId>kafka-streams</artifactId>-->
 <!--            <version>${kafka.client.version}</version>-->
 <!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j2.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

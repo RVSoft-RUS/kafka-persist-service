@@ -1,21 +1,19 @@
 package ru.sbrf.ckr.sberboard.kafkapersistservice.config.kafkaconsumer;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.KafkaAdmin;
+import ru.sbrf.ckr.sberboard.kafkapersistservice.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
 public class KafkaTopicConfig {
-    @Value(value = "${kafka.bootstrapAddress}")
-    private String bootstrapAddress;
-
     @Bean
     public KafkaAdmin kafkaAdmin() {
+        String bootstrapAddress = Utils.getJNDIValue("java:comp/env/kafkaConsumer/bootstrapAddress");
         Map<String, Object> config = new HashMap<>();
         config.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
 
