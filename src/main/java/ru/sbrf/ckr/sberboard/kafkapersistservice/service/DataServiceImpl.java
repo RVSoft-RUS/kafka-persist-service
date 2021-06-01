@@ -55,7 +55,7 @@ public class DataServiceImpl implements DataService {
             case I:
             case U: {
                 MessageObject messageObject = (MessageObject) mapper.convertValue(formattedMessage.getAfter(), Class.forName(entityHashMap.get(formattedMessage.getTable())));
-                if (messageObject.getUnknownFields() != null) {
+                if (messageObject.getUnknownFields() != null && !messageObject.getUnknownFields().isEmpty()) {
                     auditService.sendExtraFields(formattedMessage, messageObject);
                 }
                 repositoryHashMap.get(formattedMessage.getTable())

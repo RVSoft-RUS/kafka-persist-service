@@ -1,0 +1,87 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>sberboard-service</display-name>
+
+  <resource-ref>
+    <description>StagingDB Connection</description>
+    <res-ref-name>jdbc/Staging</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+
+  <resource-env-ref>
+    <resource-env-ref-name>kafkaAudit/bootstrapServers</resource-env-ref-name>
+    <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+  </resource-env-ref>
+
+  <resource-env-ref>
+    <resource-env-ref-name>kafkaConsumer/bootstrapAddress</resource-env-ref-name>
+    <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+  </resource-env-ref>
+
+  <resource-env-ref>
+    <resource-env-ref-name>kafkaAudit/SecurityProtocol</resource-env-ref-name>
+    <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+  </resource-env-ref>
+
+  <resource-env-ref>
+    <resource-env-ref-name>kafkaAudit/trustStoreLocation</resource-env-ref-name>
+    <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+  </resource-env-ref>
+
+  <resource-env-ref>
+    <resource-env-ref-name>kafkaAudit/trustStorePassword</resource-env-ref-name>
+    <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+  </resource-env-ref>
+
+  <resource-env-ref>
+    <resource-env-ref-name>kafkaAudit/keyPassword</resource-env-ref-name>
+    <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+  </resource-env-ref>
+
+  <resource-env-ref>
+    <resource-env-ref-name>kafkaAudit/keyStorePassword</resource-env-ref-name>
+    <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+  </resource-env-ref>
+
+  <resource-env-ref>
+    <resource-env-ref-name>kafkaAudit/keyStoreLocation</resource-env-ref-name>
+    <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+  </resource-env-ref>
+
+  <resource-env-ref>
+    <resource-env-ref-name>kafka/PersistService/appId</resource-env-ref-name>
+    <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+  </resource-env-ref>
+
+  <resource-env-ref>
+    <resource-env-ref-name>kafkaAudit/topicName</resource-env-ref-name>
+    <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+  </resource-env-ref>
+
+  <resource-env-ref>
+    <resource-env-ref-name>kafkaAudit/modeId</resource-env-ref-name>
+    <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+  </resource-env-ref>
+
+  <resource-env-ref>
+    <resource-env-ref-name>PersistService/logs/filePath</resource-env-ref-name>
+    <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+  </resource-env-ref>
+
+  <resource-env-ref>
+    <resource-env-ref-name>PersistService/logs/arhSize</resource-env-ref-name>
+    <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+  </resource-env-ref>
+
+<!--  <resource-env-ref>-->
+<!--    <resource-env-ref-name>increment/pagination/pageSize</resource-env-ref-name>-->
+<!--    <resource-env-ref-type>java.lang.String</resource-env-ref-type>-->
+<!--  </resource-env-ref>-->
+
+
+</web-app>
+
