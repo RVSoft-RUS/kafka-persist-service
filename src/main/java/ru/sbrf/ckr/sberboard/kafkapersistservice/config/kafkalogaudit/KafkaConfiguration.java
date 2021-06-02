@@ -41,7 +41,14 @@ public class KafkaConfiguration {
         configProps.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, SBERBOARD_SERVICE_TRANSACTIONAL_ID_CONFIG);
         configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        configProps.put("ssl.endpoint.identification.algorithm", "");
         configProps.put("security.protocol", SECURITY_PROTOCOL_VALUE);
+        configProps.put("ssl.truststore.location", TRUST_STORE_LOCATION);
+        configProps.put("ssl.truststore.password", TRUST_STORE_PASSWORD);
+        configProps.put("ssl.key.password", KEY_PASSWORD);
+        configProps.put("ssl.keystore.password", KEY_STORE_PASSWORD);
+        configProps.put("ssl.keystore.location", KEY_STORE_LOCATION);
+
         DefaultKafkaProducerFactory<String, String> producer = new DefaultKafkaProducerFactory<>(configProps);
         producer.setTransactionIdPrefix(SBERBOARD_SERVICE_TRANSACTIONAL_ID);
         return producer;
