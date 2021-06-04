@@ -5,7 +5,7 @@ public enum OperationType {
     U("Update"),  //Update
     D("Delete");  //Delete
 
-    private String description;
+    private final String description;
 
     OperationType(String description) {
         this.description = description;

@@ -20,7 +20,7 @@ import java.util.Map;
 
 @Configuration
 public class KafkaConsumerConfig {
-    String bootstrapAddress = Utils.getJNDIValue("java:comp/env/kafkaConsumer/bootstrapAddress");
+    private static final String bootstrapAddress = Utils.getJNDIValue("java:comp/env/kafkaConsumer/bootstrapAddress");
     @Value("${kafka.group}")
     private String kafkaGroupId;
 

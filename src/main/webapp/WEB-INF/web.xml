@@ -23,6 +23,11 @@
   </resource-env-ref>
 
   <resource-env-ref>
+    <resource-env-ref-name>kafkaConsumer/topics</resource-env-ref-name>
+    <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+  </resource-env-ref>
+
+  <resource-env-ref>
     <resource-env-ref-name>kafkaAudit/SecurityProtocol</resource-env-ref-name>
     <resource-env-ref-type>java.lang.String</resource-env-ref-type>
   </resource-env-ref>

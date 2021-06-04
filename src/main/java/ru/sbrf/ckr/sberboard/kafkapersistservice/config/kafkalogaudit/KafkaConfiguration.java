@@ -58,9 +58,7 @@ public class KafkaConfiguration {
     public KafkaSettings getKafkaSettings(){
         String topicName = Utils.getJNDIValue("java:comp/env/kafkaAudit/topicName");
         String modeId = Utils.getJNDIValue("java:comp/env/kafkaAudit/modeId");
-//        String modeId = "SBERBOARD-PERSIST-AGENT";
-//        String appId = Utils("java:comp/env/kafka/appId");
-        String appId = "sbrdservice-ser-421a-b27e-817a2339cb54";
+        String appId = Utils.getJNDIValue("java:comp/env/kafka/appId");
         String bootstrapServers = Utils.getJNDIValue("java:comp/env/kafkaAudit/bootstrapServers");
         KafkaSettings kafkaSettings = new KafkaSettings();
         kafkaSettings.setAppId(appId);

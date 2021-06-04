@@ -39,6 +39,9 @@
     <Environment name="kafkaConsumer/bootstrapAddress" value="10.53.227.190:9092"
                  type="java.lang.String" override="false"/>
 
+    <Environment name="kafkaConsumer/topics" value="delta-crm_corp-SIEBEL_CX_TXB_EVT,delta-crm_corp-SIEBEL_CX_TXB_LOG_STAT,delta-crm_corp-SIEBEL_CX_TXB_HIST,delta-crm_corp-SIEBEL_CX_DEPOSIT,delta-crm_corp-SIEBEL_S_SRV_REQ_X"
+                 type="java.lang.String" override="false"/>
+
 <!--    TODO подставить корректный id приложения. Временно пользуемся id для Сервис преобразования&ndash;&gt;-->
 <!--    TODO id нашего приложения: nrtservice-ser-4fdf-9369-579fffb2f03b-->
     <Environment name="kafka/PersistService/appId" value="sbrdservice-ser-421a-b27e-817a2339cb54"

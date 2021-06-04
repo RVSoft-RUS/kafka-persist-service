@@ -18,6 +18,11 @@
     </resource-env-ref>
 
     <resource-env-ref>
+        <resource-env-ref-name>kafkaConsumer/topics</resource-env-ref-name>
+        <jndi-name>java:/env/kafkaConsumer/topics</jndi-name>
+    </resource-env-ref>
+
+    <resource-env-ref>
         <resource-env-ref-name>kafkaAudit/SecurityProtocol</resource-env-ref-name>
         <jndi-name>java:/env/kafkaAudit/SecurityProtocol</jndi-name>
     </resource-env-ref>
