@@ -21,8 +21,17 @@ import java.util.Map;
 @Configuration
 public class KafkaConsumerConfig {
     private static final String bootstrapAddress = Utils.getJNDIValue("java:comp/env/kafkaConsumer/bootstrapAddress");
+    private static final String SECURITY_PROTOCOL_VALUE = Utils.getJNDIValue("java:comp/env/kafkaConsumer/SecurityProtocol");
+    private static final String TRUST_STORE_LOCATION = Utils.getJNDIValue("java:comp/env/kafkaSSL/trustStoreLocation");
+    private static final String TRUST_STORE_PASSWORD = Utils.getJNDIValue("java:comp/env/kafkaSSL/trustStorePassword");
+    private static final String KEY_PASSWORD = Utils.getJNDIValue("java:comp/env/kafkaSSL/keyPassword");
+    private static final String KEY_STORE_PASSWORD = Utils.getJNDIValue("java:comp/env/kafkaSSL/keyStorePassword");
+    private static final String KEY_STORE_LOCATION = Utils.getJNDIValue("java:comp/env/kafkaSSL/keyStoreLocation");
+
     @Value("${kafka.group}")
     private String kafkaGroupId;
+
+
 
     @Bean
     public KafkaListenerContainerFactory<?> batchFactory() {
@@ -51,6 +60,13 @@ public class KafkaConsumerConfig {
         props.put(ConsumerConfig.GROUP_ID_CONFIG, kafkaGroupId);
         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, true);
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG,"latest");
+        props.put("ssl.endpoint.identification.algorithm", "");
+        props.put("security.protocol", SECURITY_PROTOCOL_VALUE);
+        props.put("ssl.truststore.location", TRUST_STORE_LOCATION);
+        props.put("ssl.truststore.password", TRUST_STORE_PASSWORD);
+        props.put("ssl.key.password", KEY_PASSWORD);
+        props.put("ssl.keystore.password", KEY_STORE_PASSWORD);
+        props.put("ssl.keystore.location", KEY_STORE_LOCATION);
         return props;
     }
 

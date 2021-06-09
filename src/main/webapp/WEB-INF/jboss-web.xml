@@ -23,33 +23,38 @@
     </resource-env-ref>
 
     <resource-env-ref>
+        <resource-env-ref-name>kafkaConsumer/SecurityProtocol</resource-env-ref-name>
+        <jndi-name>java:/env/kafkaConsumer/SecurityProtocol</jndi-name>
+    </resource-env-ref>
+
+    <resource-env-ref>
         <resource-env-ref-name>kafkaAudit/SecurityProtocol</resource-env-ref-name>
         <jndi-name>java:/env/kafkaAudit/SecurityProtocol</jndi-name>
     </resource-env-ref>
 
     <resource-env-ref>
-        <resource-env-ref-name>kafkaAudit/trustStoreLocation</resource-env-ref-name>
-        <jndi-name>java:/env/kafkaAudit/trustStoreLocation</jndi-name>
+        <resource-env-ref-name>kafkaSSL/trustStoreLocation</resource-env-ref-name>
+        <jndi-name>java:/env/kafkaSSL/trustStoreLocation</jndi-name>
     </resource-env-ref>
 
     <resource-env-ref>
-        <resource-env-ref-name>kafkaAudit/trustStorePassword</resource-env-ref-name>
-        <jndi-name>java:/env/kafkaAudit/trustStorePassword</jndi-name>
+        <resource-env-ref-name>kafkaSSL/trustStorePassword</resource-env-ref-name>
+        <jndi-name>java:/env/kafkaSSL/trustStorePassword</jndi-name>
     </resource-env-ref>
 
     <resource-env-ref>
-        <resource-env-ref-name>kafkaAudit/keyPassword</resource-env-ref-name>
-        <jndi-name>java:/env/kafkaAudit/keyPassword</jndi-name>
+        <resource-env-ref-name>kafkaSSL/keyPassword</resource-env-ref-name>
+        <jndi-name>java:/env/kafkaSSL/keyPassword</jndi-name>
     </resource-env-ref>
 
     <resource-env-ref>
-        <resource-env-ref-name>kafkaAudit/keyStorePassword</resource-env-ref-name>
-        <jndi-name>java:/env/kafkaAudit/keyStorePassword</jndi-name>
+        <resource-env-ref-name>kafkaSSL/keyStorePassword</resource-env-ref-name>
+        <jndi-name>java:/env/kafkaSSL/keyStorePassword</jndi-name>
     </resource-env-ref>
 
     <resource-env-ref>
-        <resource-env-ref-name>kafkaAudit/keyStoreLocation</resource-env-ref-name>
-        <jndi-name>java:/env/kafkaAudit/keyStoreLocation</jndi-name>
+        <resource-env-ref-name>kafkaSSL/keyStoreLocation</resource-env-ref-name>
+        <jndi-name>java:/env/kafkaSSL/keyStoreLocation</jndi-name>
     </resource-env-ref>
 
     <resource-env-ref>

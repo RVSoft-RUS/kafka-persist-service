@@ -21,22 +21,25 @@
     <Environment name="kafkaAudit/SecurityProtocol" value="PLAINTEXT"
                  type="java.lang.String" override="false"/>
 
-    <Environment name="kafkaAudit/trustStoreLocation" value=""
+    <Environment name="kafkaSSL/trustStoreLocation" value=""
                  type="java.lang.String" override="false"/>
 
-    <Environment name="kafkaAudit/trustStorePassword" value=""
+    <Environment name="kafkaSSL/trustStorePassword" value=""
                  type="java.lang.String" override="false"/>
 
-    <Environment name="kafkaAudit/keyPassword" value=""
+    <Environment name="kafkaSSL/keyPassword" value=""
                  type="java.lang.String" override="false"/>
 
-    <Environment name="kafkaAudit/keyStorePassword" value=""
+    <Environment name="kafkaSSL/keyStorePassword" value=""
                  type="java.lang.String" override="false"/>
 
-    <Environment name="kafkaAudit/keyStoreLocation" value=""
+    <Environment name="kafkaSSL/keyStoreLocation" value=""
                  type="java.lang.String" override="false"/>
 
     <Environment name="kafkaConsumer/bootstrapAddress" value="10.53.227.190:9092"
+                 type="java.lang.String" override="false"/>
+
+    <Environment name="kafkaConsumer/SecurityProtocol" value="PLAINTEXT"
                  type="java.lang.String" override="false"/>
 
     <Environment name="kafkaConsumer/topics" value="delta-crm_corp-SIEBEL_CX_TXB_EVT,delta-crm_corp-SIEBEL_CX_TXB_LOG_STAT,delta-crm_corp-SIEBEL_CX_TXB_HIST,delta-crm_corp-SIEBEL_CX_DEPOSIT,delta-crm_corp-SIEBEL_S_SRV_REQ_X"
