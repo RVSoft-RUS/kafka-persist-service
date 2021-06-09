@@ -22,11 +22,11 @@ public class KafkaConfiguration {
     public static final String SECURITY_PROTOCOL_VALUE = Utils.getJNDIValue("java:comp/env/kafkaAudit/SecurityProtocol");
     public static final String SBERBOARD_SERVICE_TRANSACTIONAL_ID = "sberboard-service-transactional-id";
     public static final String ACKS_CONFIG = "all";
-    public static final String TRUST_STORE_LOCATION = Utils.getJNDIValue("java:comp/env/kafkaAudit/trustStoreLocation");
-    public static final String TRUST_STORE_PASSWORD = Utils.getJNDIValue("java:comp/env/kafkaAudit/trustStorePassword");
-    public static final String KEY_PASSWORD = Utils.getJNDIValue("java:comp/env/kafkaAudit/keyPassword");
-    public static final String KEY_STORE_PASSWORD = Utils.getJNDIValue("java:comp/env/kafkaAudit/keyStorePassword");
-    public static final String KEY_STORE_LOCATION = Utils.getJNDIValue("java:comp/env/kafkaAudit/keyStoreLocation");
+    public static final String TRUST_STORE_LOCATION = Utils.getJNDIValue("java:comp/env/kafkaSSL/trustStoreLocation");
+    public static final String TRUST_STORE_PASSWORD = Utils.getJNDIValue("java:comp/env/kafkaSSL/trustStorePassword");
+    public static final String KEY_PASSWORD = Utils.getJNDIValue("java:comp/env/kafkaSSL/keyPassword");
+    public static final String KEY_STORE_PASSWORD = Utils.getJNDIValue("java:comp/env/kafkaSSL/keyStorePassword");
+    public static final String KEY_STORE_LOCATION = Utils.getJNDIValue("java:comp/env/kafkaSSL/keyStoreLocation");
 
 //    private static final Logger logger = LogManager.getLogger("KafkaConfiguration");
 

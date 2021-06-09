@@ -28,32 +28,37 @@
   </resource-env-ref>
 
   <resource-env-ref>
+    <resource-env-ref-name>kafkaConsumer/SecurityProtocol</resource-env-ref-name>
+    <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+  </resource-env-ref>
+
+  <resource-env-ref>
     <resource-env-ref-name>kafkaAudit/SecurityProtocol</resource-env-ref-name>
     <resource-env-ref-type>java.lang.String</resource-env-ref-type>
   </resource-env-ref>
 
   <resource-env-ref>
-    <resource-env-ref-name>kafkaAudit/trustStoreLocation</resource-env-ref-name>
+    <resource-env-ref-name>kafkaSSL/trustStoreLocation</resource-env-ref-name>
     <resource-env-ref-type>java.lang.String</resource-env-ref-type>
   </resource-env-ref>
 
   <resource-env-ref>
-    <resource-env-ref-name>kafkaAudit/trustStorePassword</resource-env-ref-name>
+    <resource-env-ref-name>kafkaSSL/trustStorePassword</resource-env-ref-name>
     <resource-env-ref-type>java.lang.String</resource-env-ref-type>
   </resource-env-ref>
 
   <resource-env-ref>
-    <resource-env-ref-name>kafkaAudit/keyPassword</resource-env-ref-name>
+    <resource-env-ref-name>kafkaSSL/keyPassword</resource-env-ref-name>
     <resource-env-ref-type>java.lang.String</resource-env-ref-type>
   </resource-env-ref>
 
   <resource-env-ref>
-    <resource-env-ref-name>kafkaAudit/keyStorePassword</resource-env-ref-name>
+    <resource-env-ref-name>kafkaSSL/keyStorePassword</resource-env-ref-name>
     <resource-env-ref-type>java.lang.String</resource-env-ref-type>
   </resource-env-ref>
 
   <resource-env-ref>
-    <resource-env-ref-name>kafkaAudit/keyStoreLocation</resource-env-ref-name>
+    <resource-env-ref-name>kafkaSSL/keyStoreLocation</resource-env-ref-name>
     <resource-env-ref-type>java.lang.String</resource-env-ref-type>
   </resource-env-ref>
 
