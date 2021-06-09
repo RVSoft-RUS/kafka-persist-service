@@ -19,13 +19,25 @@ public class DataServiceImpl implements DataService {
                            CxTxbHistRepository cxTxbHistRepository,
                            CxTxbLogStatRepository cxTxbLogStatRepository,
                            CxDepositRepository cxDepositRepository,
-                           SSrvReqXRepository sSrvReqXRepository
+                           SSrvReqXRepository sSrvReqXRepository,
+                           CxCommMsgRepository cxCommMsgRepository,
+                           CxSrConclRepository cxSrConclRepository,
+                           CxSrEmpRepository cxSrEmpRepository,
+                           CxSrExpertiseRepository cxSrExpertiseRepository,
+                           SSrvReqRepository sSrvReqRepository
     ) {
         topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_EVT", CxTxbEvt.class, cxTxbEvtRepository);
         topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_HIST", CxTxbHist.class, cxTxbHistRepository);
         topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_LOG_STAT", CxTxbLogStat.class, cxTxbLogStatRepository);
         topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_DEPOSIT", CxDeposit.class, cxDepositRepository);
         topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_S_SRV_REQ_X", SSrvReqX.class, sSrvReqXRepository);
+
+        topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_COMM_MSG", CxCommMsg.class, cxCommMsgRepository);
+        topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_SR_CONCL", CxSrConcl.class, cxSrConclRepository);
+        topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_SR_EMP", CxSrEmp.class, cxSrEmpRepository);
+        topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_SR_EXPERTISE", CxSrExpertise.class, cxSrExpertiseRepository);
+        topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_S_SRV_REQ", SSrvReq.class, sSrvReqRepository);
+
     }
 
     @Autowired
