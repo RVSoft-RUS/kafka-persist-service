@@ -32,11 +32,11 @@ public class DataServiceImpl implements DataService {
         topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_DEPOSIT", CxDeposit.class, cxDepositRepository);
         topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_S_SRV_REQ_X", SSrvReqX.class, sSrvReqXRepository);
 
-        topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_S_SRV_REQ_X", CxCommMsg.class, cxCommMsgRepository);
-        topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_S_SRV_REQ_X", CxSrConcl.class, cxSrConclRepository);
-        topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_S_SRV_REQ_X", CxSrEmp.class, cxSrEmpRepository);
-        topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_S_SRV_REQ_X", CxSrExpertise.class, cxSrExpertiseRepository);
-        topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_S_SRV_REQ_X", SSrvReq.class, sSrvReqRepository);
+        topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_COMM_MSG", CxCommMsg.class, cxCommMsgRepository);
+        topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_SR_CONCL", CxSrConcl.class, cxSrConclRepository);
+        topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_SR_EMP", CxSrEmp.class, cxSrEmpRepository);
+        topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_SR_EXPERTISE", CxSrExpertise.class, cxSrExpertiseRepository);
+        topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_S_SRV_REQ", SSrvReq.class, sSrvReqRepository);
 
     }
 
