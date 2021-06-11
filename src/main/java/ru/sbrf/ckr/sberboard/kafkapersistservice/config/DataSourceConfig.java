@@ -17,16 +17,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.Properties;
 
 @Configuration
 @AllArgsConstructor
 public class DataSourceConfig {
-//    private final DataSource dataSource;
+    private final DataSource dataSource;
 
     private static final Logger logger = LogManager.getLogger("DataConfigurationRawData");
 
-    @Bean(name = "dataSourceNrt")
+//    @Bean(name = "dataSourceNrt")
     public DataSource dataSourceNrt()  {
         DataSource datasource = null;
         try {
@@ -37,7 +38,8 @@ public class DataSourceConfig {
         }
         try {
             logger.info("----------------------------------STAGING DB INFO----------------------------------");
-            logger.info("----------STAGING DB INFO Database: " + datasource.getConnection().getMetaData().getDatabaseProductName() +
+            logger.info("----------STAGING DB INFO Database: " + Objects.requireNonNull(datasource)
+                    .getConnection().getMetaData().getDatabaseProductName() +
                     " " + datasource.getConnection().getMetaData().getDatabaseProductVersion());
             logger.info("----------STAGING DB INFO Schemas info: " + datasource.getConnection().getMetaData().getSchemas());
             logger.info("----------STAGING DB INFO Max connections: " + datasource.getConnection().getMetaData().getMaxConnections());
@@ -66,7 +68,7 @@ public class DataSourceConfig {
     public EntityManagerFactory entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setPersistenceUnitName("sberboard_staging");
-        em.setDataSource(dataSourceNrt());
+        em.setDataSource(dataSource);
         em.setPackagesToScan("ru.sbrf.ckr.sberboard.kafkapersistservice");
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         em.setJpaProperties(additionalProperties());
