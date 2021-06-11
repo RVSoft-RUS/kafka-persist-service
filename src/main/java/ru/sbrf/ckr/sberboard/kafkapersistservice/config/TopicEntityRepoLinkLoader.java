@@ -22,7 +22,8 @@ public class TopicEntityRepoLinkLoader {
                                                CxTxbCallJrnRepository cxTxbCallJrnRepository,
                                                CxTxbListLvlRepository cxTxbListLvlRepository,
                                                CxTxbScheduleRepository cxTxbScheduleRepository,
-                                               CxTxbSmenyRepository cxTxbSmenyRepository
+                                               CxTxbSmenyRepository cxTxbSmenyRepository,
+                                               SPartyRepository sPartyRepository
     ) {
         TopicEntityRepoLink topicEntityRepoLink = new TopicEntityRepoLink();
         topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_EVT", CxTxbEvt.class, cxTxbEvtRepository);
@@ -41,6 +42,8 @@ public class TopicEntityRepoLinkLoader {
         topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_LIST_LVL", CxTxbListLvl.class, cxTxbListLvlRepository);
         topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_SCHEDULE", CxTxbSchedule.class, cxTxbScheduleRepository);
         topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_CX_TXB_SMENY", CxTxbSmeny.class, cxTxbSmenyRepository);
+
+        topicEntityRepoLink.put("NRT_CRM_CORP.delta-crm_corp-SIEBEL_S_PARTY", SParty.class, sPartyRepository);
 
         return topicEntityRepoLink;
     }
